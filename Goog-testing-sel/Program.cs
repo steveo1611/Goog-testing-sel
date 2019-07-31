@@ -13,7 +13,6 @@ namespace Goog_testing_sel
         {
             string name = "testfieldsteve";
             string psWord = "J0hn3:16";
-            By loginButton = By.XPath("//*[@id='identifierNext']/span/span");
             string bodyText ="Body test: this is a test of info in the body of email";
 
             ChromeOptions options = new ChromeOptions();
@@ -52,16 +51,12 @@ namespace Goog_testing_sel
 
         public static void EmailLogOut(IWebDriver driver)
         {
+            WaitForPage(driver, 10000, ("//*[@title='Inbox']"));
             driver.FindElement(By.XPath("//*[@title='Inbox']")).Click();
             driver.FindElement(By.XPath("//a[starts-with(@aria-label, 'Google Account: Steve Testfield')]")).Click();
             driver.FindElement(By.XPath("//a[@class='gb_3 gb_6f gb_eg gb_Ne gb_pb']")).Click();
-
-
         }
-        //next steps: TODOs wait for mail to open: then select the 'compose' button
-        //  DONE focus on new message - To - enter email address, add a subject line and something in the body then click the send button
-        // click on the inbox  on left side to refresh email and then open and verify sent/recieved email
-        //sign out
+
         public static void UserEmailCompose(IWebDriver driver, string name, string bodyText)
         {
             By toReciept = By.XPath("//*[@name='to']");
