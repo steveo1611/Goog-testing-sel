@@ -22,7 +22,7 @@ namespace Goog_testing_sel
         }
         internal static void ValidateRecievedEmail(IWebDriver driver, string bodyText)
         {
-            driver.FindElement(By.XPath("//*[@class='Cp']/div/table/tbody/tr[1]/td[6]")).Click();
+            driver.FindElement(By.XPath("//*[@class='Cp']//div[@role ='link']")).Click();
             var textBodyText = driver.FindElement(By.XPath("//*[@class='a3s aXjCH ']/div[1]")).Text;
             Thread.Sleep(3000);
             if (bodyText.Equals(textBodyText))

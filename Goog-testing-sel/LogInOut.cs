@@ -20,8 +20,9 @@ namespace Goog_testing_sel
         }
         internal static void UserPassword(IWebDriver driver, string psWord)
         {
-            driver.FindElement(By.XPath("//*[@id='password']/div[1]/div/div[1]/input")).SendKeys(psWord);
-            driver.FindElement(By.XPath("//*[@id='passwordNext']/span/span")).Click();
+            driver.FindElement(By.XPath("//*[@id='password']//input[@name='password']")).SendKeys(psWord);
+            Driversetting.WaitForPage(driver, 10000, ("//*[@id='passwordNext']//span[text()='Next']"));
+            driver.FindElement(By.XPath("//*[@id='passwordNext']//span[text()='Next']")).Click();
         }
         internal static void EmailLogOut(IWebDriver driver)
         {
